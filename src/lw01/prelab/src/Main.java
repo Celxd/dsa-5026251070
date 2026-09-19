@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -12,14 +11,15 @@ public class Main {
         int n = 5;
 
         while (n-- > 0) {
-            String line = sc.nextLine();
-            String[] words = line.split(" ");
+            String printType = sc.next();
+            String id = sc.next();
+            int pageNum = sc.nextInt();
 
-            if (words[0].equals("MONO")) {
-                PrintJob mono = new MonoPrint(words[1], Integer.parseInt(words[2]));
+            if (printType.equals("MONO")) {
+                PrintJob mono = new MonoPrint(id, pageNum);
                 listPJ.add(mono);
             } else {
-                PrintJob colour = new ColourPrint(words[1], Integer.parseInt(words[2]));
+                PrintJob colour = new ColourPrint(id, pageNum);
                 listPJ.add(colour);
             }
         }
@@ -27,5 +27,7 @@ public class Main {
         for (PrintJob print : listPJ) {
             System.out.println(print.summary());
         }
+
+        sc.close();
     }
 }
