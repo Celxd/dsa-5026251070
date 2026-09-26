@@ -8,10 +8,10 @@ public class CarWash extends WashService {
     @Override
     public int calculateCharge() {
         if (getDays() <= 3) {
-            return getDays() * 35000;
-        } else {
-            return 3 * 3500 + (getDays() - 3) * 25000 + 15000;
+            return getDays() * 35000 + 15000;
         }
+
+        return 3 * 35000 + (getDays() - 3) * 25000 + 15000;
     }
 
     @Override
