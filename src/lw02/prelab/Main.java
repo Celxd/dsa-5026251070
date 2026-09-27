@@ -83,7 +83,8 @@ public class Main {
 
         System.out.println();
         System.out.println("=== Failed Transactions ===");
-        for (String[] transactionsToPrint : failedTransactions) {
+        while (!failedTransactions.isEmpty()) {
+            String[] transactionsToPrint = failedTransactions.pop();
             System.out.println(transactionsToPrint[0] + " " + transactionsToPrint[1] + " " + transactionsToPrint[2]);
         }
     }
