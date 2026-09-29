@@ -7,6 +7,7 @@ import java.util.Stack;
 
 public class Main {
 
+    @SuppressWarnings("ConvertToTryWithResources")
     public static void main(String[] args) {
         LinkedList<String[]> orders = new LinkedList<>();
         LinkedList<String[]> foodStock = new LinkedList<>();
@@ -96,9 +97,9 @@ public class Main {
     public static int ReduceStock(LinkedList<String[]> genericStock, String generic, String[] currentGeneric,
             String[] currentOrder,
             Stack<String[]> failedOrders) {
-        for (String[] checkingDrink : genericStock) {
-            if (checkingDrink[0].equals(generic)) {
-                currentGeneric = checkingDrink;
+        for (String[] checkingGeneric : genericStock) {
+            if (checkingGeneric[0].equals(generic)) {
+                currentGeneric = checkingGeneric;
             }
         }
 
