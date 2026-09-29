@@ -50,33 +50,15 @@ public class Main {
             String[] currentDrink = null;
 
             if (!food.equals("-")) {
-                for (String[] checkingFood : foodStock) {
-                    if (checkingFood[0].equals(food)) {
-                        currentFood = checkingFood;
-                    }
-                }
-
-                if (Integer.parseInt(currentFood[1]) - 1 < 0) {
-                    failedOrders.add(currentOrder);
+                int res = ReduceStock(foodStock, food, currentFood, currentOrder, failedOrders);
+                if (res < 0)
                     continue;
-                } else {
-                    currentFood[1] = String.valueOf(Integer.parseInt(currentFood[1]) - 1);
-                }
             }
 
             if (!drink.equals("-")) {
-                for (String[] checkingDrink : drinkStock) {
-                    if (checkingDrink[0].equals(drink)) {
-                        currentDrink = checkingDrink;
-                    }
-                }
-
-                if (Integer.parseInt(currentDrink[1]) - 1 < 0) {
-                    failedOrders.add(currentOrder);
+                int res = ReduceStock(drinkStock, drink, currentDrink, currentOrder, failedOrders);
+                if (res < 0)
                     continue;
-                } else {
-                    currentDrink[1] = String.valueOf(Integer.parseInt(currentDrink[1]) - 1);
-                }
             }
 
             successOrders.add(currentOrder);
@@ -111,4 +93,21 @@ public class Main {
 
     }
 
+    public static int ReduceStock(LinkedList<String[]> genericStock, String generic, String[] currentGeneric,
+            String[] currentOrder,
+            Stack<String[]> failedOrders) {
+        for (String[] checkingDrink : genericStock) {
+            if (checkingDrink[0].equals(generic)) {
+                currentGeneric = checkingDrink;
+            }
+        }
+
+        if (Integer.parseInt(currentGeneric[1]) - 1 < 0) {
+            failedOrders.add(currentOrder);
+            return -1;
+        } else {
+            currentGeneric[1] = String.valueOf(Integer.parseInt(currentGeneric[1]) - 1);
+            return 0;
+        }
+    }
 }
