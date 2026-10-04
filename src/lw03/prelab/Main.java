@@ -22,16 +22,16 @@ public class Main {
 
             switch (type) {
                 case "ADD":
-                    song = sc.next();
+                    song = sc.nextLine();
                     playlist.add(index, song);
                     break;
                 case "INSERT":
                     index = sc.nextInt();
-                    song = sc.next();
+                    song = sc.nextLine();
                     playlist.add(index, song);
                     break;
                 case "REMOVE":
-                    song = sc.next();
+                    song = sc.nextLine();
                     playlist.remove(song);
                     break;
             }
