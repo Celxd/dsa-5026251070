@@ -105,5 +105,7 @@ public class Main {
             System.out.println(key + ": " + value);
         });
         System.out.println("Failed sales: " + failedSales);
+
+        sc.close();
     }
 }
