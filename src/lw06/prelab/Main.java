@@ -25,7 +25,6 @@ public class Main {
             root = insert(root, line.nextInt());
         }
         line.close();
-        sc.close();
 
         int target = sc.nextInt();
 
