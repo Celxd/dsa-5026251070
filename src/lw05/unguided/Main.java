@@ -34,11 +34,14 @@ public class Main {
         List<Integer> order = bfs(start);
         printLevels(order);
 
-        System.out.println("=== Fewest Stops Route from Market to Airport ===");
-        printPath(buildPath(dest, bfsPrev, start));
+        System.out.println();
+        printSummary("Fewest Stops (BFS) " + names[start] + " to " + names[dest],
+                buildPath(dest, bfsPrev, start));
 
-        printSummary("=== Fastest Route from Central to Airport ===", buildPath(dest, bfsPrev, start));
-
+        System.out.println();
+        dijkstraAlg(start);
+        printSummary("Fastest Route (Dijkstra) " + names[start] + " to " + names[dest],
+                buildPath(dest, dijkstraPrev, start));
     }
 
     // Adds a two-way track (complete, do not change)
