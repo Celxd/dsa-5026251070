@@ -14,6 +14,8 @@ public class Main {
             bst.insert(line.nextInt());
         }
 
+        line.close();
+
         System.out.print("Preorder : ");
         bst.preOrder();
 
